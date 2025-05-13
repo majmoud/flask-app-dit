@@ -47,11 +47,11 @@ jobs:
 #        echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}, USER: ${GITHUB_REPOSITORY%/*}, PROJECT_BASE_URL: ${GITHUB_REPOSITORY#*/}"
 #        flet build web --base-url ${GITHUB_REPOSITORY#*/} --route-url-strategy hash
 
-    - name: Upload Artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        name: web-build-artifact
-        path: build/web
+#    - name: Upload Artifact
+#      uses: actions/upload-pages-artifact@v3
+#      with:
+#        name: web-build-artifact
+#        path: build/web
 
 
   deploy:
@@ -76,4 +76,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4.0.5
         with:
-          artifact_name: web-build-artifact
+          folder: build
+          branch: develop
